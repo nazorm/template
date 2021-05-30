@@ -12,13 +12,15 @@ $tadatextcolor: rgba(37, 37, 37, 1);
 $color: rgba(63, 62, 62, 1);
 $grey: rgba(152, 152, 152, 1);
 $linkcolor: rgba(8, 189, 55, 1);
+$linkbackgroundcolor : #F9F9F9;
 $peach: rgba(255, 244, 234, 1);
+$templatecardbackground: rgba(255, 255, 255, 1);
 $bordercolor: rgba(189, 189, 189, 1);
 
 .App {
   width: 90%;
   margin: 10% auto;
-  border: 1px solid black;
+  overflow: hidden;
 }
 .search-heading {
   margin: 0 0 30px;
@@ -28,7 +30,7 @@ $bordercolor: rgba(189, 189, 189, 1);
   position: absolute;
   width: 13px;
   top: 25%;
-  right: 50%;
+  right: 5%;
 }
 .info-icon {
   top: 20%;
@@ -37,6 +39,7 @@ $bordercolor: rgba(189, 189, 189, 1);
 .searchbar-container {
   position: relative;
   margin: 0 0 15px;
+  width: 50%;
   .searchbar {
     border: 0.5px solid $bordercolor;
     border-radius: 3px;
@@ -120,9 +123,11 @@ $bordercolor: rgba(189, 189, 189, 1);
 }
 
 .template-card {
-  border: 1px solid black;
+  -webkit-box-shadow: 0 0 10px $bordercolor;
+        box-shadow: 0 0 10px $bordercolor;
+  background-color: $templatecardbackground;
   margin: 0 0 30px 0;
-  padding: 15px;
+  padding: 15px 15px 0;
   .name {
     color: $namecolor;
     font-family: $fontstack;
@@ -132,7 +137,7 @@ $bordercolor: rgba(189, 189, 189, 1);
     margin: 0 0 10px 0;
   }
   .category {
-    margin: 10px 0;
+    margin: 0 0 10px 0;
     font-size: 13px;
     font-family: $descriptionfont;
     color: $color;
@@ -140,16 +145,53 @@ $bordercolor: rgba(189, 189, 189, 1);
   .description {
     font-family: $descriptionfont;
     color: $color;
-    margin: 10px 0;
+    margin: 5px 0;
   }
   .date-created {
-    margin: 10px 0;
+    margin: 0 0 10px 0;
+    font-size: 13px;
+    font-family: $fontstack;
+    font-weight: 500;
   }
-  .template-cta {
-    margin: 10px 0;
+  .cta-container {
+    border: 1px solid transparent;
+    margin: 20px -5% 0;
+    padding: 8px 12px;
+    background-color: $linkbackgroundcolor;
+
+    .template-cta {
+      font-family: $fontstack;
+      font-weight: 500;
+      color: $linkcolor;
+      font-size: 13px;
+      text-decoration: none;
+    
+    }
   }
+
   /*Tablet Screens*/
   @media only screen and (min-width: 500px) and (max-width: 900px) {
+  }
+  /*Desktop Screens*/
+  @media only screen and (min-width: 901px) {
+  }
+}
+
+.pages-container{
+  .pages-ul{
+    display: flex;
+    .page-number{
+      list-style: none;
+      border: 1px solid $bordercolor;
+      padding: 2px 6px;
+      font-size: 10px;
+      margin: 0 3px;
+      font-weight: 500;
+
+    }
+  }
+   /*Tablet Screens*/
+   @media only screen and (min-width: 500px) and (max-width: 900px) {
   }
   /*Desktop Screens*/
   @media only screen and (min-width: 901px) {
