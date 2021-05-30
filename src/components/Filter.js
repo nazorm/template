@@ -1,25 +1,27 @@
 import React from "react";
+import "../App.scss"
 import searchIcon from "./assets/search-icon.svg";
 
 const Filter = () => {
   return (
     <div className="search-heading">
-        <div>
-        <input type="text" placeholder="Search Templates" />
-        <img src={searchIcon} alt="search"/>
+        <div className="searchbar-container">
+        <input type="text" placeholder="Search Templates" className="searchbar" />
+        <img src={searchIcon} alt="search" className="search-icon"/>
         </div>
      
       <div className="filters-sect">
-          <select className="category-filter">
+        <span className="label">Sort By:</span>
+          <select className="filter">
               <option name="all">All</option>
               <option name="agriculture">Agriculture</option>
           </select>
 
-          <select className="order-filter">
+          <select className="filter">
               <option name="default">Default</option>
           </select>
 
-          <select className="date-filter">
+          <select className="filter">
               <option name="default">Default</option>
           </select>
       </div>
