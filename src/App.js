@@ -44,7 +44,7 @@ function App() {
     <section className="App">
       <Filter />
       <div className="freetemplate-info">
-        <img src={infoIcon} alt="info" />
+        <img src={infoIcon} alt="info" className="info-icon" />
         <span className="info-text">
           Tada! Get started with a free template. Can’t find what you are
           looking for? Search from the 1000+ available templates
@@ -54,7 +54,7 @@ function App() {
         <div className="templatecontainer-header">
           <h4 className="templatecontainer-headertext">All Templates</h4>
           <span className="numberof-templates">
-            {templateList.length} templates
+            {loading? " " : templateList.length} templates
           </span>
         </div>
         {loading ? (
