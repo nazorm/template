@@ -1,1 +1,157 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;400&family=Roboto:wght@100;300;400;500&display=swap");
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
 
+$fontstack: "Roboto", sans-serif;
+$descriptionfont: "Inter", sans-serif;
+$namecolor: rgba(51, 52, 71, 1);
+$tadatextcolor: rgba(37, 37, 37, 1);
+$color: rgba(63, 62, 62, 1);
+$grey: rgba(152, 152, 152, 1);
+$linkcolor: rgba(8, 189, 55, 1);
+$peach: rgba(255, 244, 234, 1);
+$bordercolor: rgba(189, 189, 189, 1);
+
+.App {
+  width: 90%;
+  margin: 10% auto;
+  border: 1px solid black;
+}
+.search-heading {
+  margin: 0 0 30px;
+}
+.search-icon,
+.info-icon {
+  position: absolute;
+  width: 13px;
+  top: 25%;
+  right: 50%;
+}
+.info-icon {
+  top: 20%;
+  left: 0%;
+}
+.searchbar-container {
+  position: relative;
+  margin: 0 0 15px;
+  .searchbar {
+    border: 0.5px solid $bordercolor;
+    border-radius: 3px;
+    padding: 5px 10px;
+    .searchbar::placeholder {
+      color: $grey;
+    }
+  }
+
+  /*Tablet Screens*/
+  @media only screen and (min-width: 500px) and (max-width: 900px) {
+  }
+  /*Desktop Screens*/
+  @media only screen and (min-width: 901px) {
+  }
+}
+.filters-sect {
+  .label {
+    color: $grey;
+    font-family: $fontstack;
+    font-weight: 400;
+    font-size: 13px;
+  }
+  .filter {
+    margin: 5px;
+    border: 0.5px solid $bordercolor;
+    border-radius: 3px;
+    padding: 5px;
+  }
+  /*Tablet Screens*/
+  @media only screen and (min-width: 500px) and (max-width: 900px) {
+  }
+  /*Desktop Screens*/
+  @media only screen and (min-width: 901px) {
+  }
+}
+.freetemplate-info {
+  text-align: end;
+  border: 1px solid transparent;
+  font-family: $fontstack;
+  font-weight: 400;
+  font-size: 13px;
+  position: relative;
+  background-color: $peach;
+  .info-text {
+    margin: 0 0 0 10.5px;
+
+    /*Tablet Screens*/
+    @media only screen and (min-width: 500px) and (max-width: 900px) {
+    }
+    /*Desktop Screens*/
+    @media only screen and (min-width: 901px) {
+    }
+  }
+  /*Tablet Screens*/
+  @media only screen and (min-width: 500px) and (max-width: 900px) {
+  }
+  /*Desktop Screens*/
+  @media only screen and (min-width: 901px) {
+  }
+}
+.template-container {
+  margin: 30px 0;
+  .templatecontainer-header {
+    width: 100%;
+    margin: 0 0 20px;
+    display: flex;
+    justify-content: space-between;
+    color: $color;
+    font-size: 14px;
+  }
+  .numberof-templates {
+    color: $grey;
+  }
+  /*Tablet Screens*/
+  @media only screen and (min-width: 500px) and (max-width: 900px) {
+  }
+  /*Desktop Screens*/
+  @media only screen and (min-width: 901px) {
+  }
+}
+
+.template-card {
+  border: 1px solid black;
+  margin: 0 0 30px 0;
+  padding: 15px;
+  .name {
+    color: $namecolor;
+    font-family: $fontstack;
+    font-weight: 500;
+    font-size: 17px;
+    text-transform: capitalize;
+    margin: 0 0 10px 0;
+  }
+  .category {
+    margin: 10px 0;
+    font-size: 13px;
+    font-family: $descriptionfont;
+    color: $color;
+  }
+  .description {
+    font-family: $descriptionfont;
+    color: $color;
+    margin: 10px 0;
+  }
+  .date-created {
+    margin: 10px 0;
+  }
+  .template-cta {
+    margin: 10px 0;
+  }
+  /*Tablet Screens*/
+  @media only screen and (min-width: 500px) and (max-width: 900px) {
+  }
+  /*Desktop Screens*/
+  @media only screen and (min-width: 901px) {
+  }
+}
