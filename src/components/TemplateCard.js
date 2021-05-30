@@ -4,10 +4,11 @@ import "../App.scss"
 const TemplateCard = ({template}) => {
   const {name, created, category, description, link} = template;
   const date = new Date(created).toLocaleDateString()
+  const categories = category.join();
   return (
     <div className="template-card">
       <h3 className="name">{name} form template</h3>
-      <span className="category">{category}</span>
+      <span className="category">{categories}</span>
       <p className="description">{description}</p>
       <span className="date-created">{date}</span>
       <div className="cta-container">
