@@ -22,8 +22,19 @@ $bordercolor: rgba(189, 189, 189, 1);
   margin: 10% auto;
   overflow: hidden;
 }
-.search-heading {
+.header {
   margin: 0 0 30px;
+   /*Tablet Screens*/
+   @media only screen and (min-width: 500px) and (max-width: 900px) {
+     display: flex;
+     justify-content: space-between;
+  }
+  /*Desktop Screens*/
+  @media only screen and (min-width: 901px) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
 .search-icon,
 .info-icon {
@@ -33,7 +44,7 @@ $bordercolor: rgba(189, 189, 189, 1);
   right: 5%;
 }
 .info-icon {
-  top: 20%;
+  top: 10%;
   left: 0%;
 }
 .searchbar-container {
@@ -51,9 +62,13 @@ $bordercolor: rgba(189, 189, 189, 1);
 
   /*Tablet Screens*/
   @media only screen and (min-width: 500px) and (max-width: 900px) {
+    margin: 0;
+    width: 25%;
   }
   /*Desktop Screens*/
   @media only screen and (min-width: 901px) {
+    margin: 0;
+    width: 40%;
   }
 }
 .filters-sect {
@@ -121,8 +136,23 @@ $bordercolor: rgba(189, 189, 189, 1);
   @media only screen and (min-width: 901px) {
   }
 }
+.templates{
 
+   /*Tablet Screens*/
+   @media only screen and (min-width: 500px) and (max-width: 900px) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 16px;
+  }
+  /*Desktop Screens*/
+  @media only screen and (min-width: 901px) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 16px;
+  }
+}
 .template-card {
+  position: relative;
   -webkit-box-shadow: 0 0 10px $bordercolor;
         box-shadow: 0 0 10px $bordercolor;
   background-color: $templatecardbackground;
@@ -148,14 +178,18 @@ $bordercolor: rgba(189, 189, 189, 1);
     margin: 5px 0;
   }
   .date-created {
-    margin: 0 0 10px 0;
+    margin: 0 0 30px 0;
     font-size: 13px;
     font-family: $fontstack;
     font-weight: 500;
   }
   .cta-container {
+    position: absolute;
+    bottom: 0%;
+    right: 0;
+    left: 0;
     border: 1px solid transparent;
-    margin: 20px -5% 0;
+    margin: 20px 0 0;
     padding: 8px 12px;
     background-color: $linkbackgroundcolor;
 
