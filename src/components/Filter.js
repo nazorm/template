@@ -4,7 +4,7 @@ import searchIcon from "./assets/search-icon.svg";
 
 const Filter = () => {
   return (
-    <div className="search-heading">
+    <div className="header">
       <div className="searchbar-container">
         <input
           type="text"
