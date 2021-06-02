@@ -60,7 +60,7 @@ function App() {
         {loading ? (
           <p>Loading, please wait...</p>
         ) : (
-          <div className="template">
+          <div className="templates">
             {CurrentList.map((template) => {
               return <TemplateCard 
               key={template.created}
