@@ -12,7 +12,7 @@ $tadatextcolor: rgba(37, 37, 37, 1);
 $color: rgba(63, 62, 62, 1);
 $grey: rgba(152, 152, 152, 1);
 $linkcolor: rgba(8, 189, 55, 1);
-$linkbackgroundcolor : #F9F9F9;
+$linkbackgroundcolor: #f9f9f9;
 $peach: rgba(255, 244, 234, 1);
 $templatecardbackground: rgba(255, 255, 255, 1);
 $bordercolor: rgba(189, 189, 189, 1);
@@ -24,10 +24,10 @@ $bordercolor: rgba(189, 189, 189, 1);
 }
 .header {
   margin: 0 0 30px;
-   /*Tablet Screens*/
-   @media only screen and (min-width: 500px) and (max-width: 900px) {
-     display: flex;
-     justify-content: space-between;
+  /*Tablet Screens*/
+  @media only screen and (min-width: 500px) and (max-width: 900px) {
+    display: flex;
+    justify-content: space-between;
   }
   /*Desktop Screens*/
   @media only screen and (min-width: 901px) {
@@ -46,6 +46,15 @@ $bordercolor: rgba(189, 189, 189, 1);
 .info-icon {
   top: 10%;
   left: 0%;
+  position: relative;
+  /*Tablet Screens*/
+  @media only screen and (min-width: 500px) and (max-width: 900px) {
+    width: 15px;
+  }
+  /*Desktop Screens*/
+  @media only screen and (min-width: 901px) {
+    width: 20px;
+  }
 }
 .searchbar-container {
   position: relative;
@@ -54,23 +63,53 @@ $bordercolor: rgba(189, 189, 189, 1);
   .searchbar {
     border: 0.5px solid $bordercolor;
     border-radius: 3px;
-    padding: 5px 10px;
-    .searchbar::placeholder {
-      color: $grey;
+    padding: 8px 10px;
+
+    /*Tablet Screens*/
+    @media only screen and (min-width: 500px) and (max-width: 900px) {
+      padding: 8px;
+      width: 100%;
+    }
+    /*Desktop Screens*/
+    @media only screen and (min-width: 901px) {
+      padding: 10px;
+      width: 100%;
     }
   }
 
   /*Tablet Screens*/
   @media only screen and (min-width: 500px) and (max-width: 900px) {
     margin: 0;
-    width: 25%;
+    width: 24%;
   }
   /*Desktop Screens*/
   @media only screen and (min-width: 901px) {
     margin: 0;
-    width: 40%;
+    width: 25%;
   }
 }
+.searchbar:focus::placeholder {
+  color: transparent;
+}
+.searchbar::placeholder {
+  color: $grey;
+  transition: color 0.3 ease;
+}
+.filter-container {
+  position: relative;
+  width: 28%;
+  .select-label {
+    color: $bordercolor;
+    font-size: 10px;
+    font-family: $fontstack;
+    font-weight: 400;
+    position: absolute;
+    left: 12%;
+    background-color: white;
+    padding: 0 2px;
+  }
+}
+
 .filters-sect {
   .label {
     color: $grey;
@@ -82,13 +121,32 @@ $bordercolor: rgba(189, 189, 189, 1);
     margin: 5px;
     border: 0.5px solid $bordercolor;
     border-radius: 3px;
-    padding: 5px;
+    padding: 8px 5px;
+    background-color: transparent;
+    /*Tablet Screens*/
+    @media only screen and (min-width: 500px) and (max-width: 900px) {
+      width: 90%;
+    }
+    /*Desktop Screens*/
+    @media only screen and (min-width: 901px) {
+      width: 90%;
+    }
   }
   /*Tablet Screens*/
   @media only screen and (min-width: 500px) and (max-width: 900px) {
+    margin: 0;
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
   /*Desktop Screens*/
   @media only screen and (min-width: 901px) {
+    margin: 0;
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 .freetemplate-info {
@@ -99,21 +157,28 @@ $bordercolor: rgba(189, 189, 189, 1);
   font-size: 13px;
   position: relative;
   background-color: $peach;
+  padding: 10px;
   .info-text {
     margin: 0 0 0 10.5px;
 
     /*Tablet Screens*/
     @media only screen and (min-width: 500px) and (max-width: 900px) {
+      font-size: 15px;
     }
     /*Desktop Screens*/
     @media only screen and (min-width: 901px) {
+      font-size: 15px;
     }
   }
   /*Tablet Screens*/
   @media only screen and (min-width: 500px) and (max-width: 900px) {
+    text-align: center;
+    padding: 10px;
   }
   /*Desktop Screens*/
   @media only screen and (min-width: 901px) {
+    padding: 10px;
+    text-align: center;
   }
 }
 .template-container {
@@ -129,17 +194,10 @@ $bordercolor: rgba(189, 189, 189, 1);
   .numberof-templates {
     color: $grey;
   }
+}
+.templates {
   /*Tablet Screens*/
   @media only screen and (min-width: 500px) and (max-width: 900px) {
-  }
-  /*Desktop Screens*/
-  @media only screen and (min-width: 901px) {
-  }
-}
-.templates{
-
-   /*Tablet Screens*/
-   @media only screen and (min-width: 500px) and (max-width: 900px) {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-gap: 16px;
@@ -154,10 +212,15 @@ $bordercolor: rgba(189, 189, 189, 1);
 .template-card {
   position: relative;
   -webkit-box-shadow: 0 0 10px $bordercolor;
-        box-shadow: 0 0 10px $bordercolor;
+  box-shadow: 0 0 10px $bordercolor;
   background-color: $templatecardbackground;
   margin: 0 0 30px 0;
   padding: 15px 15px 0;
+  height: 200px;
+  &:hover {
+    cursor: pointer;
+    opacity: 0.5;
+  }
   .name {
     color: $namecolor;
     font-family: $fontstack;
@@ -178,7 +241,7 @@ $bordercolor: rgba(189, 189, 189, 1);
     margin: 5px 0;
   }
   .date-created {
-    margin: 0 0 30px 0;
+    margin: 0 0 10px 0;
     font-size: 13px;
     font-family: $fontstack;
     font-weight: 500;
@@ -199,35 +262,43 @@ $bordercolor: rgba(189, 189, 189, 1);
       color: $linkcolor;
       font-size: 13px;
       text-decoration: none;
-    
     }
-  }
-
-  /*Tablet Screens*/
-  @media only screen and (min-width: 500px) and (max-width: 900px) {
-  }
-  /*Desktop Screens*/
-  @media only screen and (min-width: 901px) {
   }
 }
 
-.pages-container{
-  .pages-ul{
-    display: flex;
-    .page-number{
-      list-style: none;
-      border: 1px solid $bordercolor;
-      padding: 2px 6px;
-      font-size: 10px;
-      margin: 0 3px;
-      font-weight: 500;
-
+.pageBtns {
+  width: 10%;
+  margin: 0 auto;
+  height: 40px;
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  padding: 0 10px;
+  & a {
+    padding: 8px 10px;
+    margin: 5px;
+    border-radius: 5px;
+    border: 1px solid #2b2eff;
+    color: #2b2eff;
+    font-size: 10px;
+    font-weight: 700;
+    &:hover {
+      cursor: pointer;
+      color: white;
+      background-color: #2b2eff;
     }
   }
-   /*Tablet Screens*/
-   @media only screen and (min-width: 500px) and (max-width: 900px) {
+  /*Tablet Screens*/
+  @media only screen and (min-width: 500px) and (max-width: 900px) {
+    width: 60%;
   }
   /*Desktop Screens*/
   @media only screen and (min-width: 901px) {
+    width: 60%;
   }
+}
+.activePage {
+  color: white;
+  font-weight: 700;
+  background-color: #2b2eff;
 }
