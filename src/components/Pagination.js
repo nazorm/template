@@ -1,5 +1,5 @@
 import React from "react";
-
+import ReactPaginate from "react-paginate";
 const Pagination = ({ templatesPerPage, totaltemplates, handlePageChange }) => {
   const pageNumbers = [];
 
@@ -9,21 +9,18 @@ const Pagination = ({ templatesPerPage, totaltemplates, handlePageChange }) => {
   }
 
   return (
-    <nav className="pages-container">
-      <ul className="pages-ul">
-        {pageNumbers.map((pageNumber) => {
-          return (
-            <li
-              onClick={() => handlePageChange(pageNumber)}
-              className="page-number"
-              key={pageNumber}
-            >
-              {pageNumber}
-            </li>
-          );
-        })}
-      </ul>
-    </nav>
+    <div className="pages-container">
+      <ReactPaginate
+        previousLabel={"Previous"}
+        nextLabel={"Next"}
+        pageCount={displayPage}
+        onPageChange={handlePageChange}
+        containerClassName={"pageBtns"}
+        previousLinkClassName={"previousBtn"}
+        nextLinkClassName={"nextBtn"}
+        activeLinkClassName={"activePage"}
+      />
+    </div>
   );
 };
 
