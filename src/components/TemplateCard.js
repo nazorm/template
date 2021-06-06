@@ -1,9 +1,9 @@
 import React from "react";
-import "../App.scss"
+import "../App.scss";
 
-const TemplateCard = ({template}) => {
-  const {name, created, category, description, link} = template;
-  const date = new Date(created).toLocaleDateString()
+const TemplateCard = ({ template }) => {
+  const { name, created, category, description, link } = template;
+  const date = new Date(`${created}`).toString();
   const categories = category.join();
   return (
     <div className="template-card">
@@ -12,9 +12,15 @@ const TemplateCard = ({template}) => {
       <p className="description">{description}</p>
       <span className="date-created">{date}</span>
       <div className="cta-container">
-      <a href={link} target="_blank" rel="noopener noreferrer" className="template-cta">Use Template</a>
+        <a
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="template-cta"
+        >
+          Use Template
+        </a>
       </div>
-     
     </div>
   );
 };
