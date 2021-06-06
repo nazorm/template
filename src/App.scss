@@ -116,6 +116,7 @@ $bordercolor: rgba(189, 189, 189, 1);
     font-family: $fontstack;
     font-weight: 400;
     font-size: 13px;
+    margin: 0 0 5px 0;
   }
   .filter {
     margin: 5px;
@@ -211,8 +212,8 @@ $bordercolor: rgba(189, 189, 189, 1);
 }
 .template-card {
   position: relative;
-  -webkit-box-shadow: 0 0 10px $bordercolor;
-  box-shadow: 0 0 10px $bordercolor;
+  -webkit-box-shadow: 0 0 5px $bordercolor;
+  box-shadow: 0 0 5px $bordercolor;
   background-color: $templatecardbackground;
   margin: 0 0 30px 0;
   padding: 15px 15px 0;
