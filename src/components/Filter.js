@@ -28,7 +28,7 @@ const Filter = ({
       {/* Filters Container */}
       <div className="filters-sect">
         <span className="label">Sort By:</span>
-         {/* Category Filter */}
+        {/* Category Filter */}
         <div className="filter-container">
           <span className="select-label">Category</span>
           <select className="filter">
@@ -36,7 +36,7 @@ const Filter = ({
             <option name="agriculture">Agriculture</option>
           </select>
         </div>
- {/* Orders Filter */}
+        {/* Orders Filter */}
         <div className="filter-container">
           <span className="select-label">Order</span>
           <select className="filter" onChange={handleOrder}>
@@ -45,7 +45,7 @@ const Filter = ({
             <option value="descending">Descending</option>
           </select>
         </div>
-         {/* Date Filter */}
+        {/* Date Filter */}
         <div className="filter-container">
           <span className="select-label">Date</span>
           <select className="filter" onChange={handleDate}>
