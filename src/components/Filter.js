@@ -9,6 +9,7 @@ const Filter = ({
   handleSearch,
 }) => {
   return (
+    // search
     <div className="header">
       <div className="searchbar-container">
         <input
@@ -24,9 +25,10 @@ const Filter = ({
           onClick={handleSearch}
         />
       </div>
-
+      {/* Filters Container */}
       <div className="filters-sect">
         <span className="label">Sort By:</span>
+         {/* Category Filter */}
         <div className="filter-container">
           <span className="select-label">Category</span>
           <select className="filter">
@@ -34,7 +36,7 @@ const Filter = ({
             <option name="agriculture">Agriculture</option>
           </select>
         </div>
-
+ {/* Orders Filter */}
         <div className="filter-container">
           <span className="select-label">Order</span>
           <select className="filter" onChange={handleOrder}>
@@ -43,6 +45,7 @@ const Filter = ({
             <option value="descending">Descending</option>
           </select>
         </div>
+         {/* Date Filter */}
         <div className="filter-container">
           <span className="select-label">Date</span>
           <select className="filter" onChange={handleDate}>
