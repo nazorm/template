@@ -10,20 +10,23 @@ function App() {
   const [templateList, setTemplateList] = useState([]);
   const [filteredTemplates, setFilteredTemplates] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [searchValue, setSearchValue] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [templatesPerPage] = useState(20);
-  const [filters, setFilters] = useState({ order: "", date: "" });
+  const [filters, setFilters] = useState({ order: "", date: "", search: "" });
 
   // fetch templates
-  const fetchTemplates = async () => {
-    const res = await axios.get(
-      "https://front-end-task-dot-fpls-dev.uc.r.appspot.com/api/v1/public/task_templates"
-    );
-    setTemplateList(res.data);
-    setFilteredTemplates(res.data);
-    setLoading(false);
-    console.log(filteredTemplates);
-  };
+  useEffect(() => {
+    const fetchTemplates = async () => {
+      const res = await axios.get(
+        "https://front-end-task-dot-fpls-dev.uc.r.appspot.com/api/v1/public/task_templates"
+      );
+      setTemplateList(res.data);
+      setFilteredTemplates(res.data);
+      setLoading(false);
+    };
+    fetchTemplates();
+  }, []);
 
   // handle page change
   const handlePageChange = ({ selected }) => {
@@ -33,31 +36,70 @@ function App() {
 
   //handle filters for date and order
   const handleFilters = (newFilters) => {
-    let isFilteredTemplates = templateList;
+    let isFilteredTemplates = [...templateList];
+    // default
     if (newFilters.order === "default" && newFilters.date === "default") {
-      isFilteredTemplates = templateList;
+      isFilteredTemplates = [...templateList];
       setFilteredTemplates(isFilteredTemplates);
       return;
     }
+    // date
     if (newFilters.date) {
       switch (newFilters.date) {
         case "ascending":
           isFilteredTemplates = isFilteredTemplates.sort(
-            (a, b) => a.date - b.date
+            (a, b) => b.created - a.created
           );
           break;
         case "descending":
           isFilteredTemplates = isFilteredTemplates.sort(
-            (a, b) => b.date - a.date
+            (a, b) => a.created - b.created
           );
+          break;
+        default:
+          isFilteredTemplates = [...templateList];
           break;
       }
     }
+    // order
     if (newFilters.order) {
-      isFilteredTemplates = isFilteredTemplates.sort();
+      switch (newFilters.order) {
+        case "ascending":
+          isFilteredTemplates = isFilteredTemplates.sort((a, b) => {
+            if (a.name < b.name) {
+              return -1;
+            }
+            if (a.name > b.name) {
+              return 1;
+            }
+            return 0;
+          });
+          break;
+        case "descending":
+          isFilteredTemplates = isFilteredTemplates.sort((a, b) => {
+            if (a.name < b.name) {
+              return 1;
+            }
+            if (a.name > b.name) {
+              return -1;
+            }
+            return 0;
+          });
+          break;
+        default:
+          isFilteredTemplates = [...templateList];
+          break;
+      }
+    }
+    // search
+    if (newFilters.search) {
+      isFilteredTemplates = isFilteredTemplates.filter((searched) => {
+        return `${searched.name}`
+          .toLowerCase()
+          .includes(newFilters.search.toLowerCase());
+      });
     }
     setFilteredTemplates(isFilteredTemplates);
-    console.log(filteredTemplates);
   };
 
   // handle order change
@@ -74,6 +116,22 @@ function App() {
     setFilters(newFilters);
     handleFilters(newFilters);
   };
+  //handle search change
+  const handleSearchChange = (e) => {
+    const { value } = e.target;
+    setSearchValue(value);
+  };
+  // handle search
+  const handleSearch = () => {
+    if (searchValue === " ") {
+      alert("Enter Something to Search");
+      return;
+    } else {
+      const newFilters = { ...filters, search: searchValue };
+      setFilters(newFilters);
+      handleFilters(newFilters);
+    }
+  };
 
   //Get current Posts
   const indexOfLastTemplate = currentPage * templatesPerPage;
@@ -82,14 +140,15 @@ function App() {
     indexOfFirstTemplate,
     indexOfLastTemplate
   );
-  // useEffect
-  useEffect(() => {
-    fetchTemplates();
-  }, []);
 
   return (
     <section className="App">
-      <Filter handleOrder={handleOrder} handleDate={handleDate} />
+      <Filter
+        handleOrder={handleOrder}
+        handleDate={handleDate}
+        handleSearchChange={handleSearchChange}
+        handleSearch={handleSearch}
+      />
       <div className="freetemplate-info">
         <img src={infoIcon} alt="info" className="info-icon" />
         <span className="info-text">
